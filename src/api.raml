@@ -22,17 +22,6 @@ resourceTypes:
           fmt:
             description: Used to define the returned content's type.
             enum: [ 'json', 'xml' ]
-        responses:
-          401:
-            description: API key authentication failed
-            body:
-              application/json:
-                example: !include api/example/authentication_failed.json
-              text/xml:
-                schema: !include api/schema/authentication_failed.xsd
-                example: !include api/example/authentication_failed.xml
-          500:
-            description: Basic Authentication failed
 traits:
   - secured:
       usage: Apply this to all method to use API key authentication.
@@ -45,6 +34,17 @@ traits:
           minLength: 160
           maxLength: 160
           example: kk20ff321d77e5065fasd0d61fd89e4b
+      responses:
+        401:
+          description: API key authentication failed
+          body:
+            application/json:
+              example: !include api/example/authentication_failed.json
+            text/xml:
+              schema: !include api/schema/authentication_failed.xsd
+              example: !include api/example/authentication_failed.xml
+        500:
+          description: Basic Authentication failed
 securedBy: [ basic ]
 mediaType: application/json
 /domain:
