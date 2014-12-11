@@ -21,6 +21,7 @@ traits:
       description: All API requests require this type of authentication as well.
       queryParameters:
         api_key:
+          displayName: API Key
           description: Used to send an API key along with the credentials.
           type: string
           required: true
@@ -44,12 +45,14 @@ traits:
       description: Adds a key to the request defining returned content type.
       queryParameters:
         fmt:
+          displayName: Format
           description: Used to define the returned content type.
           enum: [ 'json', 'xml' ]
 resourceTypes:
   - priceList:
       uriParameters:
         currency:
+          displayName: Currency
           description: Supported ISO 4217 currency.
           enum: [ 'HUF', 'EUR', 'USD' ]
 securedBy: [ basic ]
@@ -60,6 +63,7 @@ mediaType: application/json
       is: [ secured, typed ]
       uriParameters:
         domain:
+          displayName: Domain name
           description: Domain you are looking for.
           type: string
       description: Search for a domain if it is already registered.
@@ -104,6 +108,98 @@ mediaType: application/json
             text/xml:
               schema: !include api/schema/domain/list.xsd
               example: !include api/example/domain/list.xml
+  /contact:
+    is: [ secured, typed ]
+    description: Creates a new domain contact
+    post:
+      queryParameters:
+        firstName:
+          displayName: First name
+          description: Clients first name (in case of organizations as well).
+          type: string
+          required: true
+        lastName:
+          displayName: Last name
+          description: Clients last name (in case of organizations as well).
+          type: string
+          required: true
+        isOrganization:
+          displayName: Organization?
+          description: Is it an organization or not?
+          type: boolean
+          required: true
+        identity:
+          displayName: ID Number
+          description: ID number in case of persons.
+          type: string
+        euVatNumber:
+          displayName: EU VAT Number
+          description: European VAT number in case of companies in EU.
+          type: string
+        passport:
+          displayName: Passport Number
+          description: Passport number in case of citizens of another country.
+          type: string
+        registryNumber:
+          displayName: Registry number
+          description: Company registry number in case of companies registered in Hungary.
+          type: string
+        orgLongName:
+          displayName: Organization long name
+          description: Organization's long name.
+          type: string
+        orgName:
+          displayName: Organization name
+          description: Organization's name.
+          type: string
+        domainPartnerType:
+          displayName: Domain Partner Type
+          description: |
+            Number from 0 to 8. See the list bellow:
+
+            1. DOMAIN PARTNER TYPE HUREG OWNER
+            2. DOMAIN PARTNER TYPE HUREG CONTACT
+            3. DOMAIN PARTNER TYPE COMREG CONTACT
+            4. DOMAIN PARTNER TYPE EUREG OWNER
+            5. DOMAIN PARTNER TYPE EUREG CONTACT
+            6. DOMAIN PARTNER TYPE COMREG OWNER
+            7. DOMAIN PARTNER TYPE VERISIGN CONTACT
+            8. DOMAIN PARTNER TYPE ORG CONTACT
+          type: number
+        addressName:
+          displayName: Address Name
+          description: Description for address.
+          type: string
+        addressCountry:
+          displayName: Country
+          description: ISO 3166 country code.
+          type: string
+          minLength: 2
+          maxLength: 3
+        addressState:
+          displayName: State
+          type: string
+        addressLocality:
+          displayName: Town/City
+          type: string
+        addressPostalCode:
+          displayName: Postal code
+          type: string
+        addressStreet:
+          displayName: Street
+          type: string
+        addressStreetNumber:
+          displayName: Number
+          type: string
+        email:
+          displayName: Email address
+          type: string
+        phone:
+          displayName: Phone number
+          type: string
+        fax:
+          displayName: Fax number
+          type: string
 /hosting:
   /prices:
     /{currency}:
