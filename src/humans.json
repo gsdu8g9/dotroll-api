@@ -1,0 +1,8 @@
+{
+	"team": [],
+	"site": {
+		"Version": "<%= pkg.version %>",
+		"Components": "jQuery, Angular, RAML",
+		"IDE": "Sublime Text"
+	}
+}

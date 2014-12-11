@@ -1,0 +1,126 @@
+#%RAML 0.8
+---
+title: DotRoll API
+version: "1.0"
+baseUri: https://webservices.dotroll.com/rest/{version}
+protocols: [ HTTPS ]
+securitySchemes:
+  - basic:
+      description: |
+        The DotRoll API uses Basic Auth for authentication. An authorization header containing
+        valid base64 encoded credentials must be included in every request.
+      type: Basic Authentication
+      describedBy:
+        headers:
+          Authorization:
+            description: Used to send valid Basic Auth credentials.
+            type: string
+resourceTypes:
+  - base:
+      get:
+        queryParameters:
+          fmt:
+            description: Used to define the returned content's type.
+            enum: [ 'json', 'xml' ]
+        responses:
+          401:
+            description: API key authentication failed
+            body:
+              application/json:
+                example: |
+                  {
+                    "error":"Auth failed: API key is missing"
+                  }
+              text/xml:
+                schema: |
+                  <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="response">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="error"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:schema>
+                example: |
+                  <response>
+                    <error>Auth failed: API key is missing</error>
+                  </response>
+          500:
+            description: Basic Authentication failed
+traits:
+  - secured:
+      usage: Apply this to all method to use API key authentication.
+      description: All API requests require this type of authentication as well.
+      queryParameters:
+        api_key:
+          description: Used to send an API key along with the credentials.
+          type: string
+          required: true
+          minLength: 160
+          maxLength: 160
+          example: kk20ff321d77e5065fasd0d61fd89e4b
+securedBy: [ basic ]
+mediaType: application/json
+/domain:
+  /search:
+    /{domain}:
+      type: base
+      is: [ secured ]
+      uriParameters:
+        domain:
+          description: Domain you are looking for
+          type: string
+      description: Search for a domain if it is already registered.
+      get:
+        responses:
+          200:
+            description: Domain search is successful.
+            body:
+              application/json:
+                schema: |
+                  {
+                    "type": "object",
+                    "$schema": "http://json-schema.org/draft-03/schema",
+                    "id": "http://jsonschema.net",
+                    "required": true,
+                    "properties": {
+                      "apiversion": {
+                        "type": "string",
+                        "required": true
+                      },
+                      "domain": {
+                        "type": "string",
+                        "required": true
+                      },
+                      "result": {
+                        "type": "string",
+                        "required": true
+                      }
+                    }
+                  }
+                example: |
+                  {
+                    "apiversion": "1.0",
+                    "domain": "domain.com",
+                    "result": "UNAVAILABLE"
+                  }
+              text/xml:
+                schema: |
+                  <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="response">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:float" name="apiversion"/>
+                          <xs:element type="xs:string" name="domain"/>
+                          <xs:element type="xs:string" name="result"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:schema>
+                example: |
+                  <response>
+                    <apiversion>1.0</apiversion>
+                    <domain>dotroll.com</domain>
+                    <result>UNAVAILABLE</result>
+                  </response>

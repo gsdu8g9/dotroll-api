@@ -1,0 +1,16 @@
+{
+	"name": "dotroll-api",
+	"version": "1.0.0",
+	"authors": [
+		"Márk Sági-Kazár <mark.sagikazar@gmail.com>"
+	],
+	"license": "BSD",
+	"private": true,
+	"ignore": [
+		"node_modules",
+		"bower_components"
+	],
+	"devDependencies": {
+		"api-console": "https://github.com/mulesoft/api-console.git"
+	}
+}
