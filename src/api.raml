@@ -27,25 +27,10 @@ resourceTypes:
             description: API key authentication failed
             body:
               application/json:
-                example: |
-                  {
-                    "error":"Auth failed: API key is missing"
-                  }
+                example: !include api/example/authentication_failed.json
               text/xml:
-                schema: |
-                  <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-                    <xs:element name="response">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element type="xs:string" name="error"/>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                  </xs:schema>
-                example: |
-                  <response>
-                    <error>Auth failed: API key is missing</error>
-                  </response>
+                schema: !include api/schema/authentication_failed.xsd
+                example: !include api/example/authentication_failed.xml
           500:
             description: Basic Authentication failed
 traits:
@@ -78,49 +63,8 @@ mediaType: application/json
             description: Domain search is successful.
             body:
               application/json:
-                schema: |
-                  {
-                    "type": "object",
-                    "$schema": "http://json-schema.org/draft-03/schema",
-                    "id": "http://jsonschema.net",
-                    "required": true,
-                    "properties": {
-                      "apiversion": {
-                        "type": "string",
-                        "required": true
-                      },
-                      "domain": {
-                        "type": "string",
-                        "required": true
-                      },
-                      "result": {
-                        "type": "string",
-                        "required": true
-                      }
-                    }
-                  }
-                example: |
-                  {
-                    "apiversion": "1.0",
-                    "domain": "domain.com",
-                    "result": "UNAVAILABLE"
-                  }
+                schema: !include api/schema/domain/search.json
+                example: !include api/example/domain/search.json
               text/xml:
-                schema: |
-                  <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-                    <xs:element name="response">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element type="xs:float" name="apiversion"/>
-                          <xs:element type="xs:string" name="domain"/>
-                          <xs:element type="xs:string" name="result"/>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                  </xs:schema>
-                example: |
-                  <response>
-                    <apiversion>1.0</apiversion>
-                    <domain>dotroll.com</domain>
-                    <result>UNAVAILABLE</result>
-                  </response>
+                schema: !include api/schema/domain/search.xsd
+                example: !include api/example/domain/search.xml

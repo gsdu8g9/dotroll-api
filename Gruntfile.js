@@ -14,16 +14,26 @@ module.exports = function(grunt) {
 				dest: 'dist/index.html',
 			},
 			raml: {
-				src: 'src/api.raml',
-				dest: 'dist/api.raml',
+				files: [
+					{
+						src: 'src/api.raml',
+						dest: 'dist/api.raml',
+					},
+					{
+						expand: true,
+						cwd: 'src/',
+						src: 'api/**',
+						dest: '<%= path.dist %>/',
+					},
+				],
 			},
 			vendor: {
 				files: [
 					{
 						expand: true,
 						cwd: 'bower_components/api-console/dist/',
-						src:['scripts/**', 'styles/**', 'fonts/**'],
-						dest:'<%= path.dist %>/<%= path.asset %>/',
+						src: ['scripts/**', 'styles/**', 'fonts/**'],
+						dest: '<%= path.dist %>/<%= path.asset %>/',
 					},
 				],
 			},

@@ -1,0 +1,20 @@
+{
+	"type": "object",
+	"$schema": "http://json-schema.org/draft-03/schema",
+	"id": "http://jsonschema.net",
+	"required": true,
+	"properties": {
+			"apiversion": {
+			"type": "string",
+			"required": true
+		},
+			"domain": {
+			"type": "string",
+			"required": true
+		},
+			"result": {
+			"type": "string",
+			"required": true
+		}
+	}
+}
