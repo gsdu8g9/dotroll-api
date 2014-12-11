@@ -1,0 +1,44 @@
+<response>
+	<currency>HUF</currency>
+	<remark>VAT may apply!</remark>
+	<prices>
+		<hu>
+			<new>
+				<net>2402</net>
+				<gross>3050</gross>
+			</new>
+			<transfer>
+				<net>1654</net>
+				<gross>2100</gross>
+			</transfer>
+			<renew>
+				<net>1654</net>
+				<gross>2100</gross>
+			</renew>
+			<ownerchange>
+				<net>1654</net>
+				<gross>2100</gross>
+			</ownerchange>
+			<adminchange>
+				<net>1654</net>
+				<gross>2100</gross>
+			</adminchange>
+			<techchange>
+				<net>0</net>
+				<gross>0</gross>
+			</techchange>
+			<contactchange>
+				<net>1654</net>
+				<gross>2100</gross>
+			</contactchange>
+			<restore>
+				<net>2402</net>
+				<gross>3050</gross>
+			</restore>
+			<renewRestore>
+				<net>1654</net>
+				<gross>2100</gross>
+			</renewRestore>
+		</hu>
+	</prices>
+</response>

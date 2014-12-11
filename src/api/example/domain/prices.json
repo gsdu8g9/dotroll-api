@@ -1,0 +1,44 @@
+{
+	"currency": "HUF",
+	"remark": "VAT may apply!",
+	"prices": {
+		"hu": {
+			"new": {
+				"net": 2402,
+				"gross": 3050
+			},
+			"transfer": {
+				"net": 1654,
+				"gross": 2100
+			},
+			"renew": {
+				"net": 1654,
+				"gross": 2100
+			},
+			"ownerchange": {
+				"net": 1654,
+				"gross": 2100
+			},
+			"adminchange": {
+				"net": 1654,
+				"gross": 2100
+			},
+			"techchange": {
+				"net": 0,
+				"gross": 0
+			},
+			"contactchange": {
+				"net": 1654,
+				"gross": 2100
+			},
+			"restore": {
+				"net": 2402,
+				"gross": 3050
+			},
+			"renewRestore": {
+				"net": 1654,
+				"gross": 2100
+			}
+		}
+	}
+}

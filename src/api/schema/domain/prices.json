@@ -1,0 +1,79 @@
+{
+	"type": "object",
+	"$schema": "http://json-schema.org/draft-04/schema",
+	"id": "http://code.dotroll.com/api/schema/prices",
+	"required": true,
+	"definitions": {
+		"price": {
+			"id": "price",
+			"type": "object",
+			"properties": {
+				"net": {
+					"type": "number",
+					"required": true
+				},
+				"gross": {
+					"type": "number",
+					"required": true
+				}
+			}
+		}
+	},
+	"properties": {
+		"currency": {
+			"type": "string",
+			"enum": ["HUF", "EUR", "USD"],
+			"required": true
+		},
+		"remark": {
+			"type": "string",
+			"required": false
+		},
+		"prices": {
+			"type":"array",
+			"required": true,
+			"items": {
+				"type":"object",
+				"required": true,
+				"properties":{
+					"new": {
+						"$ref": "#/definitions/price",
+						"required": true
+					},
+					"transfer": {
+						"$ref": "#/definitions/price",
+						"required": true
+					},
+					"renew": {
+						"$ref": "#/definitions/price",
+						"required": true
+					},
+					"ownerchange": {
+						"$ref": "#/definitions/price",
+						"required": true
+					},
+					"adminchange": {
+						"$ref": "#/definitions/price",
+						"required": true
+					},
+					"techchange": {
+						"$ref": "#/definitions/price",
+						"required": true
+					},
+					"contactchange": {
+						"$ref": "#/definitions/price",
+						"required": true
+					},
+					"restore": {
+						"$ref": "#/definitions/price",
+						"required": true
+					},
+					"renewRestore": {
+						"$ref": "#/definitions/price",
+						"required": true
+					}
+				}
+			}
+		}
+	}
+}

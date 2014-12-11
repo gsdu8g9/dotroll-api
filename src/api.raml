@@ -67,3 +67,22 @@ mediaType: application/json
               text/xml:
                 schema: !include api/schema/domain/search.xsd
                 example: !include api/example/domain/search.xml
+  /prices:
+    /{currency}:
+      is: [ secured, typed ]
+      uriParameters:
+        currency:
+          description: Supported ISO 4217 currency.
+          enum: [ 'HUF', 'EUR', 'USD' ]
+      description: Returns DotRoll domain prices.
+      get:
+        responses:
+          200:
+            description: Retrieving prices is successful.
+            body:
+              application/json:
+                schema: !include api/schema/domain/prices.json
+                example: !include api/example/domain/prices.json
+              text/xml:
+                schema: !include api/schema/domain/prices.xsd
+                example: !include api/example/domain/prices.xml
