@@ -1,0 +1,11 @@
+<response>
+	<apiversion>1.0</apiversion>
+	<domains>
+		<domain>
+			<name>domain.com</name>
+			<expiration>1447939400</expiration>
+			<status>DotRoll_Domain_Status_Successful</status>
+		</domain>
+	</domains>
+	<result>SUCCESS</result>
+</response>

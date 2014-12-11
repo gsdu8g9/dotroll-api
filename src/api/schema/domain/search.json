@@ -1,20 +1,23 @@
 {
 	"type": "object",
 	"$schema": "http://json-schema.org/draft-03/schema",
-	"id": "http://code.dotroll.com/api/schema/search",
-	"required": true,
+	"id": "http://code.dotroll.com/api/schema/domain/search",
+	"required": false,
 	"properties": {
-			"apiversion": {
+		"apiversion": {
 			"type": "string",
-			"required": true
+			"id": "http://jsonschema.net/apiversion",
+			"required": false
 		},
-			"domain": {
+		"domain": {
 			"type": "string",
-			"required": true
+			"id": "http://jsonschema.net/domain",
+			"required": false
 		},
-			"result": {
+		"result": {
 			"type": "string",
-			"required": true
+			"id": "http://jsonschema.net/result",
+			"required": false
 		}
 	}
 }

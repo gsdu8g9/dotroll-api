@@ -33,6 +33,7 @@ traits:
           body:
             application/json:
               example: !include api/example/authentication_failed.json
+              schema: !include api/schema/authentication_failed.json
             text/xml:
               schema: !include api/schema/authentication_failed.xsd
               example: !include api/example/authentication_failed.xml
@@ -45,6 +46,12 @@ traits:
         fmt:
           description: Used to define the returned content type.
           enum: [ 'json', 'xml' ]
+resourceTypes:
+  - priceList:
+      uriParameters:
+        currency:
+          description: Supported ISO 4217 currency.
+          enum: [ 'HUF', 'EUR', 'USD' ]
 securedBy: [ basic ]
 mediaType: application/json
 /domain:
@@ -69,11 +76,8 @@ mediaType: application/json
                 example: !include api/example/domain/search.xml
   /prices:
     /{currency}:
+      type: priceList
       is: [ secured, typed ]
-      uriParameters:
-        currency:
-          description: Supported ISO 4217 currency.
-          enum: [ 'HUF', 'EUR', 'USD' ]
       description: Returns DotRoll domain prices.
       get:
         responses:
@@ -86,3 +90,51 @@ mediaType: application/json
               text/xml:
                 schema: !include api/schema/domain/prices.xsd
                 example: !include api/example/domain/prices.xml
+  /list:
+    is: [ secured, typed ]
+    description: Returns list of registered domains.
+    get:
+      responses:
+        200:
+          description: Retrieving list is successful.
+          body:
+            application/json:
+              schema: !include api/schema/domain/list.json
+              example: !include api/example/domain/list.json
+            text/xml:
+              schema: !include api/schema/domain/list.xsd
+              example: !include api/example/domain/list.xml
+/hosting:
+  /prices:
+    /{currency}:
+      type: priceList
+      is: [ secured, typed ]
+      description: Returns DotRoll hosting prices.
+      get:
+        responses:
+          200:
+            description: Retrieving prices is successful.
+            body:
+              application/json:
+                schema: !include api/schema/hosting/prices.json
+                example: !include api/example/hosting/prices.json
+              text/xml:
+                schema: !include api/schema/hosting/prices.xsd
+                example: !include api/example/hosting/prices.xml
+/vps:
+  /prices:
+    /{currency}:
+      type: priceList
+      is: [ secured, typed ]
+      description: Returns DotRoll VPS prices.
+      get:
+        responses:
+          200:
+            description: Retrieving prices is successful.
+            body:
+              application/json:
+                schema: !include api/schema/vps/prices.json
+                example: !include api/example/vps/prices.json
+              text/xml:
+                schema: !include api/schema/vps/prices.xsd
+                example: !include api/example/vps/prices.xml

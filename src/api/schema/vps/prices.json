@@ -1,0 +1,196 @@
+{
+	"type": "object",
+	"$schema": "http://json-schema.org/draft-03/schema",
+	"id": "http://code.dotroll.com/api/schema/vps/prices",
+	"required": false,
+	"properties": {
+		"currency": {
+			"type": "string",
+			"id": "http://jsonschema.net/currency",
+			"required": false
+		},
+		"periods": {
+			"type": "object",
+			"id": "http://jsonschema.net/periods",
+			"required": false,
+			"properties": {
+				"core": {
+					"type": "object",
+					"id": "http://jsonschema.net/periods/core",
+					"required": false,
+					"properties": {
+						"new": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/core/new",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/core/new/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/core/new/type",
+									"required": false
+								}
+							}
+						},
+						"renew": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/core/renew",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/core/renew/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/core/renew/type",
+									"required": false
+								}
+							}
+						}
+					}
+				},
+				"unit": {
+					"type": "object",
+					"id": "http://jsonschema.net/periods/unit",
+					"required": false,
+					"properties": {
+						"new": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/unit/new",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/unit/new/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/unit/new/type",
+									"required": false
+								}
+							}
+						},
+						"renew": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/unit/renew",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/unit/renew/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/unit/renew/type",
+									"required": false
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"prices": {
+			"type": "object",
+			"id": "http://jsonschema.net/prices",
+			"required": false,
+			"properties": {
+				"core": {
+					"type": "object",
+					"id": "http://jsonschema.net/prices/core",
+					"required": false,
+					"properties": {
+						"new": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/core/new",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/core/new/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/core/new/net",
+									"required": false
+								}
+							}
+						},
+						"renew": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/core/renew",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/core/renew/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/core/renew/net",
+									"required": false
+								}
+							}
+						}
+					}
+				},
+				"unit": {
+					"type": "object",
+					"id": "http://jsonschema.net/prices/unit",
+					"required": false,
+					"properties": {
+						"new": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/unit/new",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/unit/new/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/unit/new/net",
+									"required": false
+								}
+							}
+						},
+						"renew": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/unit/renew",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/unit/renew/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/unit/renew/net",
+									"required": false
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"remark": {
+			"type": "string",
+			"id": "http://jsonschema.net/remark",
+			"required": false
+		}
+	}
+}

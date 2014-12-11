@@ -1,0 +1,13 @@
+{
+	"type": "object",
+	"$schema": "http://json-schema.org/draft-03/schema",
+	"id": "http://code.dotroll.com/api/schema/authentication_failed",
+	"required": false,
+	"properties": {
+		"error": {
+			"type": "string",
+			"id": "http://jsonschema.net/error",
+			"required": false
+		}
+	}
+}

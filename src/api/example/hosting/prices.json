@@ -1,0 +1,108 @@
+{
+	"currency": "HUF",
+	"remark": "VAT may apply!",
+	"prices": {
+		"Free": {
+			"new": {
+				"net": 0,
+				"gross": 0
+			},
+			"renew": {
+				"net": 0,
+				"gross": 0
+			}
+		},
+		"Mini": {
+			"new": {
+				"net": 3200,
+				"gross": 4064
+			},
+			"renew": {
+				"net": 3200,
+				"gross": 4064
+			}
+		},
+		"Basic": {
+			"new": {
+				"net": 5600,
+				"gross": 7112
+			},
+			"renew": {
+				"net": 5600,
+				"gross": 7112
+			}
+		},
+		"Plus": {
+			"new": {
+				"net": 11200,
+				"gross": 14224
+			},
+			"renew": {
+				"net": 11200,
+				"gross": 14224
+			}
+		},
+		"Pro": {
+			"new": {
+				"net": 45000,
+				"gross": 57150
+			},
+			"renew": {
+				"net": 45000,
+				"gross": 57150
+			}
+		}
+	},
+	"periods": {
+		"Free": {
+			"new": {
+				"type": "year",
+				"amount": 1
+			},
+			"renew": {
+				"type": "year",
+				"amount": 1
+			}
+		},
+		"Mini": {
+			"new": {
+				"type": "year",
+				"amount": 1
+			},
+			"renew": {
+				"type": "year",
+				"amount": 1
+			}
+		},
+		"Basic": {
+			"new": {
+				"type": "year",
+				"amount": 1
+			},
+			"renew": {
+				"type": "year",
+				"amount": 1
+			}
+		},
+		"Plus": {
+			"new": {
+				"type": "year",
+				"amount": 1
+			},
+			"renew": {
+				"type": "year",
+				"amount": 1
+			}
+		},
+		"Pro": {
+			"new": {
+				"type": "year",
+				"amount": 1
+			},
+			"renew": {
+				"type": "year",
+				"amount": 1
+			}
+		}
+	}
+}

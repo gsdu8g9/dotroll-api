@@ -1,0 +1,11 @@
+{
+	"apiversion": "1.0",
+	"domains": [
+		{
+			"name": "domain.com",
+			"expiration": 1447939400,
+			"status": "DotRoll_Domain_Status_Successful"
+		}
+	],
+	"result": "SUCCESS"
+}

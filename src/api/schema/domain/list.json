@@ -1,0 +1,45 @@
+{
+	"type": "object",
+	"$schema": "http://json-schema.org/draft-03/schema",
+	"id": "http://code.dotroll.com/api/schema/domain/list",
+	"required": false,
+	"properties": {
+		"apiversion": {
+			"type": "string",
+			"id": "http://jsonschema.net/apiversion",
+			"required": false
+		},
+		"domains": {
+			"type": "array",
+			"id": "http://jsonschema.net/domains",
+			"required": false,
+			"items": {
+				"type": "object",
+				"id": "http://jsonschema.net/domains/0",
+				"required": false,
+				"properties": {
+					"expiration": {
+						"type": "number",
+						"id": "http://jsonschema.net/domains/0/expiration",
+						"required": false
+					},
+					"name": {
+						"type": "string",
+						"id": "http://jsonschema.net/domains/0/name",
+						"required": false
+					},
+					"status": {
+						"type": "string",
+						"id": "http://jsonschema.net/domains/0/status",
+						"required": false
+					}
+				}
+			}
+		},
+		"result": {
+			"type": "string",
+			"id": "http://jsonschema.net/result",
+			"required": false
+		}
+	}
+}

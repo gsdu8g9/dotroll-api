@@ -1,0 +1,242 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="response">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element type="xs:string" name="currency"/>
+				<xs:element type="xs:string" name="remark"/>
+				<xs:element name="prices">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Free">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="new">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element type="xs:byte" name="net"/>
+													<xs:element type="xs:byte" name="gross"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="renew">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element type="xs:byte" name="net"/>
+													<xs:element type="xs:byte" name="gross"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Mini">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="new">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element type="xs:short" name="net"/>
+													<xs:element type="xs:short" name="gross"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="renew">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element type="xs:short" name="net"/>
+													<xs:element type="xs:short" name="gross"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Basic">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="new">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element type="xs:short" name="net"/>
+													<xs:element type="xs:short" name="gross"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="renew">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element type="xs:short" name="net"/>
+													<xs:element type="xs:short" name="gross"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Plus">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="new">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element type="xs:short" name="net"/>
+													<xs:element type="xs:short" name="gross"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="renew">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element type="xs:short" name="net"/>
+													<xs:element type="xs:short" name="gross"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Pro">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="new">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element type="xs:int" name="net"/>
+													<xs:element type="xs:int" name="gross"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="renew">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element type="xs:int" name="net"/>
+													<xs:element type="xs:int" name="gross"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="periods">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Free">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="new">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element type="xs:string" name="type"/>
+													<xs:element type="xs:byte" name="amount"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="renew">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element type="xs:string" name="type"/>
+													<xs:element type="xs:byte" name="amount"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Mini">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="new">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element type="xs:string" name="type"/>
+													<xs:element type="xs:byte" name="amount"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="renew">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element type="xs:string" name="type"/>
+													<xs:element type="xs:byte" name="amount"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Basic">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="new">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element type="xs:string" name="type"/>
+													<xs:element type="xs:byte" name="amount"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="renew">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element type="xs:string" name="type"/>
+													<xs:element type="xs:byte" name="amount"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Plus">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="new">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element type="xs:string" name="type"/>
+													<xs:element type="xs:byte" name="amount"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="renew">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element type="xs:string" name="type"/>
+													<xs:element type="xs:byte" name="amount"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Pro">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="new">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element type="xs:string" name="type"/>
+													<xs:element type="xs:byte" name="amount"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="renew">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element type="xs:string" name="type"/>
+													<xs:element type="xs:byte" name="amount"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

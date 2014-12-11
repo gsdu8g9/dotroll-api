@@ -1,0 +1,48 @@
+{
+	"currency": "HUF",
+	"remark": "VAT may apply!",
+	"prices": {
+		"unit": {
+			"new": {
+				"net": 10800,
+				"gross": 13716
+			},
+			"renew": {
+				"net": 10800,
+				"gross": 13716
+			}
+		},
+		"core": {
+			"new": {
+				"net": 15000,
+				"gross": 19050
+			},
+			"renew": {
+				"net": 15000,
+				"gross": 19050
+			}
+		}
+	},
+	"periods": {
+		"unit": {
+			"new": {
+				"type": "month",
+				"amount": 3
+			},
+			"renew": {
+				"type": "month",
+				"amount": 3
+			}
+		},
+		"core": {
+			"new": {
+				"type": "month",
+				"amount": 1
+			},
+			"renew": {
+				"type": "month",
+				"amount": 1
+			}
+		}
+	}
+}

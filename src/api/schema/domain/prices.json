@@ -1,79 +1,5438 @@
 {
 	"type": "object",
-	"$schema": "http://json-schema.org/draft-04/schema",
-	"id": "http://code.dotroll.com/api/schema/prices",
-	"required": true,
-	"definitions": {
-		"price": {
-			"id": "price",
-			"type": "object",
-			"properties": {
-				"net": {
-					"type": "number",
-					"required": true
-				},
-				"gross": {
-					"type": "number",
-					"required": true
-				}
-			}
-		}
-	},
+	"$schema": "http://json-schema.org/draft-03/schema",
+	"id": "http://code.dotroll.com/api/schema/domain/prices",
+	"required": false,
 	"properties": {
 		"currency": {
 			"type": "string",
-			"enum": ["HUF", "EUR", "USD"],
-			"required": true
-		},
-		"remark": {
-			"type": "string",
+			"id": "http://jsonschema.net/currency",
 			"required": false
 		},
-		"prices": {
-			"type":"array",
-			"required": true,
-			"items": {
-				"type":"object",
-				"required": true,
-				"properties":{
-					"new": {
-						"$ref": "#/definitions/price",
-						"required": true
-					},
-					"transfer": {
-						"$ref": "#/definitions/price",
-						"required": true
-					},
-					"renew": {
-						"$ref": "#/definitions/price",
-						"required": true
-					},
-					"ownerchange": {
-						"$ref": "#/definitions/price",
-						"required": true
-					},
-					"adminchange": {
-						"$ref": "#/definitions/price",
-						"required": true
-					},
-					"techchange": {
-						"$ref": "#/definitions/price",
-						"required": true
-					},
-					"contactchange": {
-						"$ref": "#/definitions/price",
-						"required": true
-					},
-					"restore": {
-						"$ref": "#/definitions/price",
-						"required": true
-					},
-					"renewRestore": {
-						"$ref": "#/definitions/price",
-						"required": true
+		"periods": {
+			"type": "object",
+			"id": "http://jsonschema.net/periods",
+			"required": false,
+			"properties": {
+				"at": {
+					"type": "object",
+					"id": "http://jsonschema.net/periods/at",
+					"required": false,
+					"properties": {
+						"adminchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/at/adminchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/at/adminchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/at/adminchange/type",
+									"required": false
+								}
+							}
+						},
+						"contactchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/at/contactchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/at/contactchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/at/contactchange/type",
+									"required": false
+								}
+							}
+						},
+						"new": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/at/new",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/at/new/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/at/new/type",
+									"required": false
+								}
+							}
+						},
+						"ownerchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/at/ownerchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/at/ownerchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/at/ownerchange/type",
+									"required": false
+								}
+							}
+						},
+						"renewRestore": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/at/renewRestore",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/at/renewRestore/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/at/renewRestore/type",
+									"required": false
+								}
+							}
+						},
+						"renew": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/at/renew",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/at/renew/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/at/renew/type",
+									"required": false
+								}
+							}
+						},
+						"restore": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/at/restore",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/at/restore/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/at/restore/type",
+									"required": false
+								}
+							}
+						},
+						"techchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/at/techchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/at/techchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/at/techchange/type",
+									"required": false
+								}
+							}
+						},
+						"transfer": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/at/transfer",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/at/transfer/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/at/transfer/type",
+									"required": false
+								}
+							}
+						}
+					}
+				},
+				"be": {
+					"type": "object",
+					"id": "http://jsonschema.net/periods/be",
+					"required": false,
+					"properties": {
+						"adminchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/be/adminchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/be/adminchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/be/adminchange/type",
+									"required": false
+								}
+							}
+						},
+						"contactchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/be/contactchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/be/contactchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/be/contactchange/type",
+									"required": false
+								}
+							}
+						},
+						"new": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/be/new",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/be/new/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/be/new/type",
+									"required": false
+								}
+							}
+						},
+						"ownerchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/be/ownerchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/be/ownerchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/be/ownerchange/type",
+									"required": false
+								}
+							}
+						},
+						"renewRestore": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/be/renewRestore",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/be/renewRestore/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/be/renewRestore/type",
+									"required": false
+								}
+							}
+						},
+						"renew": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/be/renew",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/be/renew/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/be/renew/type",
+									"required": false
+								}
+							}
+						},
+						"restore": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/be/restore",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/be/restore/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/be/restore/type",
+									"required": false
+								}
+							}
+						},
+						"techchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/be/techchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/be/techchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/be/techchange/type",
+									"required": false
+								}
+							}
+						},
+						"transfer": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/be/transfer",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/be/transfer/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/be/transfer/type",
+									"required": false
+								}
+							}
+						}
+					}
+				},
+				"biz": {
+					"type": "object",
+					"id": "http://jsonschema.net/periods/biz",
+					"required": false,
+					"properties": {
+						"adminchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/biz/adminchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/biz/adminchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/biz/adminchange/type",
+									"required": false
+								}
+							}
+						},
+						"contactchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/biz/contactchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/biz/contactchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/biz/contactchange/type",
+									"required": false
+								}
+							}
+						},
+						"new": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/biz/new",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/biz/new/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/biz/new/type",
+									"required": false
+								}
+							}
+						},
+						"ownerchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/biz/ownerchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/biz/ownerchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/biz/ownerchange/type",
+									"required": false
+								}
+							}
+						},
+						"renewRestore": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/biz/renewRestore",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/biz/renewRestore/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/biz/renewRestore/type",
+									"required": false
+								}
+							}
+						},
+						"renew": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/biz/renew",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/biz/renew/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/biz/renew/type",
+									"required": false
+								}
+							}
+						},
+						"restore": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/biz/restore",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/biz/restore/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/biz/restore/type",
+									"required": false
+								}
+							}
+						},
+						"techchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/biz/techchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/biz/techchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/biz/techchange/type",
+									"required": false
+								}
+							}
+						},
+						"transfer": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/biz/transfer",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/biz/transfer/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/biz/transfer/type",
+									"required": false
+								}
+							}
+						}
+					}
+				},
+				"cc": {
+					"type": "object",
+					"id": "http://jsonschema.net/periods/cc",
+					"required": false,
+					"properties": {
+						"adminchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/cc/adminchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/cc/adminchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/cc/adminchange/type",
+									"required": false
+								}
+							}
+						},
+						"contactchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/cc/contactchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/cc/contactchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/cc/contactchange/type",
+									"required": false
+								}
+							}
+						},
+						"new": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/cc/new",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/cc/new/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/cc/new/type",
+									"required": false
+								}
+							}
+						},
+						"ownerchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/cc/ownerchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/cc/ownerchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/cc/ownerchange/type",
+									"required": false
+								}
+							}
+						},
+						"renewRestore": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/cc/renewRestore",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/cc/renewRestore/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/cc/renewRestore/type",
+									"required": false
+								}
+							}
+						},
+						"renew": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/cc/renew",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/cc/renew/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/cc/renew/type",
+									"required": false
+								}
+							}
+						},
+						"restore": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/cc/restore",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/cc/restore/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/cc/restore/type",
+									"required": false
+								}
+							}
+						},
+						"techchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/cc/techchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/cc/techchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/cc/techchange/type",
+									"required": false
+								}
+							}
+						},
+						"transfer": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/cc/transfer",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/cc/transfer/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/cc/transfer/type",
+									"required": false
+								}
+							}
+						}
+					}
+				},
+				"ch": {
+					"type": "object",
+					"id": "http://jsonschema.net/periods/ch",
+					"required": false,
+					"properties": {
+						"adminchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/ch/adminchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/ch/adminchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/ch/adminchange/type",
+									"required": false
+								}
+							}
+						},
+						"contactchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/ch/contactchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/ch/contactchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/ch/contactchange/type",
+									"required": false
+								}
+							}
+						},
+						"new": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/ch/new",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/ch/new/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/ch/new/type",
+									"required": false
+								}
+							}
+						},
+						"ownerchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/ch/ownerchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/ch/ownerchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/ch/ownerchange/type",
+									"required": false
+								}
+							}
+						},
+						"renewRestore": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/ch/renewRestore",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/ch/renewRestore/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/ch/renewRestore/type",
+									"required": false
+								}
+							}
+						},
+						"renew": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/ch/renew",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/ch/renew/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/ch/renew/type",
+									"required": false
+								}
+							}
+						},
+						"restore": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/ch/restore",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/ch/restore/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/ch/restore/type",
+									"required": false
+								}
+							}
+						},
+						"techchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/ch/techchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/ch/techchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/ch/techchange/type",
+									"required": false
+								}
+							}
+						},
+						"transfer": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/ch/transfer",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/ch/transfer/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/ch/transfer/type",
+									"required": false
+								}
+							}
+						}
+					}
+				},
+				"com": {
+					"type": "object",
+					"id": "http://jsonschema.net/periods/com",
+					"required": false,
+					"properties": {
+						"adminchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/com/adminchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/com/adminchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/com/adminchange/type",
+									"required": false
+								}
+							}
+						},
+						"contactchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/com/contactchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/com/contactchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/com/contactchange/type",
+									"required": false
+								}
+							}
+						},
+						"new": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/com/new",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/com/new/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/com/new/type",
+									"required": false
+								}
+							}
+						},
+						"ownerchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/com/ownerchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/com/ownerchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/com/ownerchange/type",
+									"required": false
+								}
+							}
+						},
+						"renewRestore": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/com/renewRestore",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/com/renewRestore/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/com/renewRestore/type",
+									"required": false
+								}
+							}
+						},
+						"renew": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/com/renew",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/com/renew/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/com/renew/type",
+									"required": false
+								}
+							}
+						},
+						"restore": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/com/restore",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/com/restore/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/com/restore/type",
+									"required": false
+								}
+							}
+						},
+						"techchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/com/techchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/com/techchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/com/techchange/type",
+									"required": false
+								}
+							}
+						},
+						"transfer": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/com/transfer",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/com/transfer/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/com/transfer/type",
+									"required": false
+								}
+							}
+						}
+					}
+				},
+				"cz": {
+					"type": "object",
+					"id": "http://jsonschema.net/periods/cz",
+					"required": false,
+					"properties": {
+						"adminchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/cz/adminchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/cz/adminchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/cz/adminchange/type",
+									"required": false
+								}
+							}
+						},
+						"contactchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/cz/contactchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/cz/contactchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/cz/contactchange/type",
+									"required": false
+								}
+							}
+						},
+						"new": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/cz/new",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/cz/new/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/cz/new/type",
+									"required": false
+								}
+							}
+						},
+						"ownerchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/cz/ownerchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/cz/ownerchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/cz/ownerchange/type",
+									"required": false
+								}
+							}
+						},
+						"renewRestore": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/cz/renewRestore",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/cz/renewRestore/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/cz/renewRestore/type",
+									"required": false
+								}
+							}
+						},
+						"renew": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/cz/renew",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/cz/renew/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/cz/renew/type",
+									"required": false
+								}
+							}
+						},
+						"restore": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/cz/restore",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/cz/restore/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/cz/restore/type",
+									"required": false
+								}
+							}
+						},
+						"techchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/cz/techchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/cz/techchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/cz/techchange/type",
+									"required": false
+								}
+							}
+						},
+						"transfer": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/cz/transfer",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/cz/transfer/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/cz/transfer/type",
+									"required": false
+								}
+							}
+						}
+					}
+				},
+				"eu": {
+					"type": "object",
+					"id": "http://jsonschema.net/periods/eu",
+					"required": false,
+					"properties": {
+						"adminchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/eu/adminchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/eu/adminchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/eu/adminchange/type",
+									"required": false
+								}
+							}
+						},
+						"contactchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/eu/contactchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/eu/contactchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/eu/contactchange/type",
+									"required": false
+								}
+							}
+						},
+						"new": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/eu/new",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/eu/new/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/eu/new/type",
+									"required": false
+								}
+							}
+						},
+						"ownerchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/eu/ownerchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/eu/ownerchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/eu/ownerchange/type",
+									"required": false
+								}
+							}
+						},
+						"renew": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/eu/renew",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/eu/renew/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/eu/renew/type",
+									"required": false
+								}
+							}
+						},
+						"restore": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/eu/restore",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/eu/restore/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/eu/restore/type",
+									"required": false
+								}
+							}
+						},
+						"techchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/eu/techchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/eu/techchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/eu/techchange/type",
+									"required": false
+								}
+							}
+						},
+						"transfer": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/eu/transfer",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/eu/transfer/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/eu/transfer/type",
+									"required": false
+								}
+							}
+						}
+					}
+				},
+				"fm": {
+					"type": "object",
+					"id": "http://jsonschema.net/periods/fm",
+					"required": false,
+					"properties": {
+						"adminchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/fm/adminchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/fm/adminchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/fm/adminchange/type",
+									"required": false
+								}
+							}
+						},
+						"contactchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/fm/contactchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/fm/contactchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/fm/contactchange/type",
+									"required": false
+								}
+							}
+						},
+						"new": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/fm/new",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/fm/new/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/fm/new/type",
+									"required": false
+								}
+							}
+						},
+						"ownerchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/fm/ownerchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/fm/ownerchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/fm/ownerchange/type",
+									"required": false
+								}
+							}
+						},
+						"renewRestore": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/fm/renewRestore",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/fm/renewRestore/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/fm/renewRestore/type",
+									"required": false
+								}
+							}
+						},
+						"renew": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/fm/renew",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/fm/renew/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/fm/renew/type",
+									"required": false
+								}
+							}
+						},
+						"restore": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/fm/restore",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/fm/restore/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/fm/restore/type",
+									"required": false
+								}
+							}
+						},
+						"techchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/fm/techchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/fm/techchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/fm/techchange/type",
+									"required": false
+								}
+							}
+						},
+						"transfer": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/fm/transfer",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/fm/transfer/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/fm/transfer/type",
+									"required": false
+								}
+							}
+						}
+					}
+				},
+				"hu": {
+					"type": "object",
+					"id": "http://jsonschema.net/periods/hu",
+					"required": false,
+					"properties": {
+						"adminchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/hu/adminchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/hu/adminchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/hu/adminchange/type",
+									"required": false
+								}
+							}
+						},
+						"contactchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/hu/contactchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/hu/contactchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/hu/contactchange/type",
+									"required": false
+								}
+							}
+						},
+						"new": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/hu/new",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/hu/new/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/hu/new/type",
+									"required": false
+								}
+							}
+						},
+						"ownerchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/hu/ownerchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/hu/ownerchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/hu/ownerchange/type",
+									"required": false
+								}
+							}
+						},
+						"renewRestore": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/hu/renewRestore",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/hu/renewRestore/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/hu/renewRestore/type",
+									"required": false
+								}
+							}
+						},
+						"renew": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/hu/renew",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/hu/renew/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/hu/renew/type",
+									"required": false
+								}
+							}
+						},
+						"restore": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/hu/restore",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/hu/restore/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/hu/restore/type",
+									"required": false
+								}
+							}
+						},
+						"techchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/hu/techchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/hu/techchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/hu/techchange/type",
+									"required": false
+								}
+							}
+						},
+						"transfer": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/hu/transfer",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/hu/transfer/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/hu/transfer/type",
+									"required": false
+								}
+							}
+						}
+					}
+				},
+				"info": {
+					"type": "object",
+					"id": "http://jsonschema.net/periods/info",
+					"required": false,
+					"properties": {
+						"adminchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/info/adminchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/info/adminchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/info/adminchange/type",
+									"required": false
+								}
+							}
+						},
+						"contactchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/info/contactchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/info/contactchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/info/contactchange/type",
+									"required": false
+								}
+							}
+						},
+						"new": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/info/new",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/info/new/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/info/new/type",
+									"required": false
+								}
+							}
+						},
+						"ownerchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/info/ownerchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/info/ownerchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/info/ownerchange/type",
+									"required": false
+								}
+							}
+						},
+						"renewRestore": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/info/renewRestore",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/info/renewRestore/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/info/renewRestore/type",
+									"required": false
+								}
+							}
+						},
+						"renew": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/info/renew",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/info/renew/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/info/renew/type",
+									"required": false
+								}
+							}
+						},
+						"restore": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/info/restore",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/info/restore/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/info/restore/type",
+									"required": false
+								}
+							}
+						},
+						"techchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/info/techchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/info/techchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/info/techchange/type",
+									"required": false
+								}
+							}
+						},
+						"transfer": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/info/transfer",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/info/transfer/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/info/transfer/type",
+									"required": false
+								}
+							}
+						}
+					}
+				},
+				"me": {
+					"type": "object",
+					"id": "http://jsonschema.net/periods/me",
+					"required": false,
+					"properties": {
+						"adminchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/me/adminchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/me/adminchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/me/adminchange/type",
+									"required": false
+								}
+							}
+						},
+						"contactchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/me/contactchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/me/contactchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/me/contactchange/type",
+									"required": false
+								}
+							}
+						},
+						"new": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/me/new",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/me/new/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/me/new/type",
+									"required": false
+								}
+							}
+						},
+						"ownerchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/me/ownerchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/me/ownerchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/me/ownerchange/type",
+									"required": false
+								}
+							}
+						},
+						"renewRestore": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/me/renewRestore",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/me/renewRestore/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/me/renewRestore/type",
+									"required": false
+								}
+							}
+						},
+						"renew": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/me/renew",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/me/renew/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/me/renew/type",
+									"required": false
+								}
+							}
+						},
+						"restore": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/me/restore",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/me/restore/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/me/restore/type",
+									"required": false
+								}
+							}
+						},
+						"techchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/me/techchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/me/techchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/me/techchange/type",
+									"required": false
+								}
+							}
+						},
+						"transfer": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/me/transfer",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/me/transfer/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/me/transfer/type",
+									"required": false
+								}
+							}
+						}
+					}
+				},
+				"mobi": {
+					"type": "object",
+					"id": "http://jsonschema.net/periods/mobi",
+					"required": false,
+					"properties": {
+						"adminchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/mobi/adminchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/mobi/adminchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/mobi/adminchange/type",
+									"required": false
+								}
+							}
+						},
+						"contactchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/mobi/contactchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/mobi/contactchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/mobi/contactchange/type",
+									"required": false
+								}
+							}
+						},
+						"new": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/mobi/new",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/mobi/new/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/mobi/new/type",
+									"required": false
+								}
+							}
+						},
+						"ownerchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/mobi/ownerchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/mobi/ownerchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/mobi/ownerchange/type",
+									"required": false
+								}
+							}
+						},
+						"renewRestore": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/mobi/renewRestore",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/mobi/renewRestore/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/mobi/renewRestore/type",
+									"required": false
+								}
+							}
+						},
+						"renew": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/mobi/renew",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/mobi/renew/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/mobi/renew/type",
+									"required": false
+								}
+							}
+						},
+						"restore": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/mobi/restore",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/mobi/restore/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/mobi/restore/type",
+									"required": false
+								}
+							}
+						},
+						"techchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/mobi/techchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/mobi/techchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/mobi/techchange/type",
+									"required": false
+								}
+							}
+						},
+						"transfer": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/mobi/transfer",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/mobi/transfer/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/mobi/transfer/type",
+									"required": false
+								}
+							}
+						}
+					}
+				},
+				"net": {
+					"type": "object",
+					"id": "http://jsonschema.net/periods/net",
+					"required": false,
+					"properties": {
+						"adminchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/net/adminchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/net/adminchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/net/adminchange/type",
+									"required": false
+								}
+							}
+						},
+						"contactchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/net/contactchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/net/contactchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/net/contactchange/type",
+									"required": false
+								}
+							}
+						},
+						"new": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/net/new",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/net/new/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/net/new/type",
+									"required": false
+								}
+							}
+						},
+						"ownerchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/net/ownerchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/net/ownerchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/net/ownerchange/type",
+									"required": false
+								}
+							}
+						},
+						"renewRestore": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/net/renewRestore",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/net/renewRestore/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/net/renewRestore/type",
+									"required": false
+								}
+							}
+						},
+						"renew": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/net/renew",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/net/renew/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/net/renew/type",
+									"required": false
+								}
+							}
+						},
+						"restore": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/net/restore",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/net/restore/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/net/restore/type",
+									"required": false
+								}
+							}
+						},
+						"techchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/net/techchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/net/techchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/net/techchange/type",
+									"required": false
+								}
+							}
+						},
+						"transfer": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/net/transfer",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/net/transfer/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/net/transfer/type",
+									"required": false
+								}
+							}
+						}
+					}
+				},
+				"org": {
+					"type": "object",
+					"id": "http://jsonschema.net/periods/org",
+					"required": false,
+					"properties": {
+						"adminchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/org/adminchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/org/adminchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/org/adminchange/type",
+									"required": false
+								}
+							}
+						},
+						"contactchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/org/contactchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/org/contactchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/org/contactchange/type",
+									"required": false
+								}
+							}
+						},
+						"new": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/org/new",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/org/new/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/org/new/type",
+									"required": false
+								}
+							}
+						},
+						"ownerchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/org/ownerchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/org/ownerchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/org/ownerchange/type",
+									"required": false
+								}
+							}
+						},
+						"renewRestore": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/org/renewRestore",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/org/renewRestore/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/org/renewRestore/type",
+									"required": false
+								}
+							}
+						},
+						"renew": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/org/renew",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/org/renew/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/org/renew/type",
+									"required": false
+								}
+							}
+						},
+						"restore": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/org/restore",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/org/restore/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/org/restore/type",
+									"required": false
+								}
+							}
+						},
+						"techchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/org/techchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/org/techchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/org/techchange/type",
+									"required": false
+								}
+							}
+						},
+						"transfer": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/org/transfer",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/org/transfer/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/org/transfer/type",
+									"required": false
+								}
+							}
+						}
+					}
+				},
+				"pl": {
+					"type": "object",
+					"id": "http://jsonschema.net/periods/pl",
+					"required": false,
+					"properties": {
+						"adminchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/pl/adminchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/pl/adminchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/pl/adminchange/type",
+									"required": false
+								}
+							}
+						},
+						"contactchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/pl/contactchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/pl/contactchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/pl/contactchange/type",
+									"required": false
+								}
+							}
+						},
+						"new": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/pl/new",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/pl/new/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/pl/new/type",
+									"required": false
+								}
+							}
+						},
+						"ownerchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/pl/ownerchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/pl/ownerchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/pl/ownerchange/type",
+									"required": false
+								}
+							}
+						},
+						"renewRestore": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/pl/renewRestore",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/pl/renewRestore/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/pl/renewRestore/type",
+									"required": false
+								}
+							}
+						},
+						"renew": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/pl/renew",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/pl/renew/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/pl/renew/type",
+									"required": false
+								}
+							}
+						},
+						"restore": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/pl/restore",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/pl/restore/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/pl/restore/type",
+									"required": false
+								}
+							}
+						},
+						"techchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/pl/techchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/pl/techchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/pl/techchange/type",
+									"required": false
+								}
+							}
+						},
+						"transfer": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/pl/transfer",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/pl/transfer/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/pl/transfer/type",
+									"required": false
+								}
+							}
+						}
+					}
+				},
+				"ro": {
+					"type": "object",
+					"id": "http://jsonschema.net/periods/ro",
+					"required": false,
+					"properties": {
+						"adminchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/ro/adminchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/ro/adminchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/ro/adminchange/type",
+									"required": false
+								}
+							}
+						},
+						"contactchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/ro/contactchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/ro/contactchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/ro/contactchange/type",
+									"required": false
+								}
+							}
+						},
+						"new": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/ro/new",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/ro/new/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/ro/new/type",
+									"required": false
+								}
+							}
+						},
+						"ownerchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/ro/ownerchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/ro/ownerchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/ro/ownerchange/type",
+									"required": false
+								}
+							}
+						},
+						"renewRestore": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/ro/renewRestore",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/ro/renewRestore/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/ro/renewRestore/type",
+									"required": false
+								}
+							}
+						},
+						"renew": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/ro/renew",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/ro/renew/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/ro/renew/type",
+									"required": false
+								}
+							}
+						},
+						"restore": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/ro/restore",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/ro/restore/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/ro/restore/type",
+									"required": false
+								}
+							}
+						},
+						"techchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/ro/techchange",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/ro/techchange/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/ro/techchange/type",
+									"required": false
+								}
+							}
+						},
+						"transfer": {
+							"type": "object",
+							"id": "http://jsonschema.net/periods/ro/transfer",
+							"required": false,
+							"properties": {
+								"amount": {
+									"type": "number",
+									"id": "http://jsonschema.net/periods/ro/transfer/amount",
+									"required": false
+								},
+								"type": {
+									"type": "string",
+									"id": "http://jsonschema.net/periods/ro/transfer/type",
+									"required": false
+								}
+							}
+						}
 					}
 				}
 			}
+		},
+		"prices": {
+			"type": "object",
+			"id": "http://jsonschema.net/prices",
+			"required": false,
+			"properties": {
+				"at": {
+					"type": "object",
+					"id": "http://jsonschema.net/prices/at",
+					"required": false,
+					"properties": {
+						"adminchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/at/adminchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/at/adminchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/at/adminchange/net",
+									"required": false
+								}
+							}
+						},
+						"contactchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/at/contactchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/at/contactchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/at/contactchange/net",
+									"required": false
+								}
+							}
+						},
+						"new": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/at/new",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/at/new/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/at/new/net",
+									"required": false
+								}
+							}
+						},
+						"ownerchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/at/ownerchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/at/ownerchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/at/ownerchange/net",
+									"required": false
+								}
+							}
+						},
+						"renewRestore": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/at/renewRestore",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/at/renewRestore/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/at/renewRestore/net",
+									"required": false
+								}
+							}
+						},
+						"renew": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/at/renew",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/at/renew/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/at/renew/net",
+									"required": false
+								}
+							}
+						},
+						"restore": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/at/restore",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/at/restore/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/at/restore/net",
+									"required": false
+								}
+							}
+						},
+						"techchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/at/techchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/at/techchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/at/techchange/net",
+									"required": false
+								}
+							}
+						},
+						"transfer": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/at/transfer",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/at/transfer/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/at/transfer/net",
+									"required": false
+								}
+							}
+						}
+					}
+				},
+				"be": {
+					"type": "object",
+					"id": "http://jsonschema.net/prices/be",
+					"required": false,
+					"properties": {
+						"adminchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/be/adminchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/be/adminchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/be/adminchange/net",
+									"required": false
+								}
+							}
+						},
+						"contactchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/be/contactchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/be/contactchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/be/contactchange/net",
+									"required": false
+								}
+							}
+						},
+						"new": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/be/new",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/be/new/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/be/new/net",
+									"required": false
+								}
+							}
+						},
+						"ownerchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/be/ownerchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/be/ownerchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/be/ownerchange/net",
+									"required": false
+								}
+							}
+						},
+						"renewRestore": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/be/renewRestore",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/be/renewRestore/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/be/renewRestore/net",
+									"required": false
+								}
+							}
+						},
+						"renew": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/be/renew",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/be/renew/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/be/renew/net",
+									"required": false
+								}
+							}
+						},
+						"restore": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/be/restore",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/be/restore/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/be/restore/net",
+									"required": false
+								}
+							}
+						},
+						"techchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/be/techchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/be/techchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/be/techchange/net",
+									"required": false
+								}
+							}
+						},
+						"transfer": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/be/transfer",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/be/transfer/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/be/transfer/net",
+									"required": false
+								}
+							}
+						}
+					}
+				},
+				"biz": {
+					"type": "object",
+					"id": "http://jsonschema.net/prices/biz",
+					"required": false,
+					"properties": {
+						"adminchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/biz/adminchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/biz/adminchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/biz/adminchange/net",
+									"required": false
+								}
+							}
+						},
+						"contactchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/biz/contactchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/biz/contactchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/biz/contactchange/net",
+									"required": false
+								}
+							}
+						},
+						"new": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/biz/new",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/biz/new/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/biz/new/net",
+									"required": false
+								}
+							}
+						},
+						"ownerchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/biz/ownerchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/biz/ownerchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/biz/ownerchange/net",
+									"required": false
+								}
+							}
+						},
+						"renewRestore": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/biz/renewRestore",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/biz/renewRestore/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/biz/renewRestore/net",
+									"required": false
+								}
+							}
+						},
+						"renew": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/biz/renew",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/biz/renew/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/biz/renew/net",
+									"required": false
+								}
+							}
+						},
+						"restore": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/biz/restore",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/biz/restore/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/biz/restore/net",
+									"required": false
+								}
+							}
+						},
+						"techchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/biz/techchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/biz/techchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/biz/techchange/net",
+									"required": false
+								}
+							}
+						},
+						"transfer": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/biz/transfer",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/biz/transfer/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/biz/transfer/net",
+									"required": false
+								}
+							}
+						}
+					}
+				},
+				"cc": {
+					"type": "object",
+					"id": "http://jsonschema.net/prices/cc",
+					"required": false,
+					"properties": {
+						"adminchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/cc/adminchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/cc/adminchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/cc/adminchange/net",
+									"required": false
+								}
+							}
+						},
+						"contactchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/cc/contactchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/cc/contactchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/cc/contactchange/net",
+									"required": false
+								}
+							}
+						},
+						"new": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/cc/new",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/cc/new/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/cc/new/net",
+									"required": false
+								}
+							}
+						},
+						"ownerchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/cc/ownerchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/cc/ownerchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/cc/ownerchange/net",
+									"required": false
+								}
+							}
+						},
+						"renewRestore": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/cc/renewRestore",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/cc/renewRestore/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/cc/renewRestore/net",
+									"required": false
+								}
+							}
+						},
+						"renew": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/cc/renew",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/cc/renew/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/cc/renew/net",
+									"required": false
+								}
+							}
+						},
+						"restore": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/cc/restore",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/cc/restore/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/cc/restore/net",
+									"required": false
+								}
+							}
+						},
+						"techchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/cc/techchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/cc/techchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/cc/techchange/net",
+									"required": false
+								}
+							}
+						},
+						"transfer": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/cc/transfer",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/cc/transfer/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/cc/transfer/net",
+									"required": false
+								}
+							}
+						}
+					}
+				},
+				"ch": {
+					"type": "object",
+					"id": "http://jsonschema.net/prices/ch",
+					"required": false,
+					"properties": {
+						"adminchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/ch/adminchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/ch/adminchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/ch/adminchange/net",
+									"required": false
+								}
+							}
+						},
+						"contactchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/ch/contactchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/ch/contactchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/ch/contactchange/net",
+									"required": false
+								}
+							}
+						},
+						"new": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/ch/new",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/ch/new/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/ch/new/net",
+									"required": false
+								}
+							}
+						},
+						"ownerchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/ch/ownerchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/ch/ownerchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/ch/ownerchange/net",
+									"required": false
+								}
+							}
+						},
+						"renewRestore": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/ch/renewRestore",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/ch/renewRestore/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/ch/renewRestore/net",
+									"required": false
+								}
+							}
+						},
+						"renew": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/ch/renew",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/ch/renew/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/ch/renew/net",
+									"required": false
+								}
+							}
+						},
+						"restore": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/ch/restore",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/ch/restore/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/ch/restore/net",
+									"required": false
+								}
+							}
+						},
+						"techchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/ch/techchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/ch/techchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/ch/techchange/net",
+									"required": false
+								}
+							}
+						},
+						"transfer": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/ch/transfer",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/ch/transfer/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/ch/transfer/net",
+									"required": false
+								}
+							}
+						}
+					}
+				},
+				"com": {
+					"type": "object",
+					"id": "http://jsonschema.net/prices/com",
+					"required": false,
+					"properties": {
+						"adminchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/com/adminchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/com/adminchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/com/adminchange/net",
+									"required": false
+								}
+							}
+						},
+						"contactchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/com/contactchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/com/contactchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/com/contactchange/net",
+									"required": false
+								}
+							}
+						},
+						"new": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/com/new",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/com/new/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/com/new/net",
+									"required": false
+								}
+							}
+						},
+						"ownerchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/com/ownerchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/com/ownerchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/com/ownerchange/net",
+									"required": false
+								}
+							}
+						},
+						"renewRestore": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/com/renewRestore",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/com/renewRestore/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/com/renewRestore/net",
+									"required": false
+								}
+							}
+						},
+						"renew": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/com/renew",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/com/renew/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/com/renew/net",
+									"required": false
+								}
+							}
+						},
+						"restore": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/com/restore",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/com/restore/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/com/restore/net",
+									"required": false
+								}
+							}
+						},
+						"techchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/com/techchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/com/techchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/com/techchange/net",
+									"required": false
+								}
+							}
+						},
+						"transfer": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/com/transfer",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/com/transfer/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/com/transfer/net",
+									"required": false
+								}
+							}
+						}
+					}
+				},
+				"cz": {
+					"type": "object",
+					"id": "http://jsonschema.net/prices/cz",
+					"required": false,
+					"properties": {
+						"adminchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/cz/adminchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/cz/adminchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/cz/adminchange/net",
+									"required": false
+								}
+							}
+						},
+						"contactchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/cz/contactchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/cz/contactchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/cz/contactchange/net",
+									"required": false
+								}
+							}
+						},
+						"new": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/cz/new",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/cz/new/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/cz/new/net",
+									"required": false
+								}
+							}
+						},
+						"ownerchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/cz/ownerchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/cz/ownerchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/cz/ownerchange/net",
+									"required": false
+								}
+							}
+						},
+						"renewRestore": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/cz/renewRestore",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/cz/renewRestore/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/cz/renewRestore/net",
+									"required": false
+								}
+							}
+						},
+						"renew": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/cz/renew",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/cz/renew/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/cz/renew/net",
+									"required": false
+								}
+							}
+						},
+						"restore": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/cz/restore",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/cz/restore/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/cz/restore/net",
+									"required": false
+								}
+							}
+						},
+						"techchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/cz/techchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/cz/techchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/cz/techchange/net",
+									"required": false
+								}
+							}
+						},
+						"transfer": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/cz/transfer",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/cz/transfer/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/cz/transfer/net",
+									"required": false
+								}
+							}
+						}
+					}
+				},
+				"eu": {
+					"type": "object",
+					"id": "http://jsonschema.net/prices/eu",
+					"required": false,
+					"properties": {
+						"adminchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/eu/adminchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/eu/adminchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/eu/adminchange/net",
+									"required": false
+								}
+							}
+						},
+						"contactchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/eu/contactchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/eu/contactchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/eu/contactchange/net",
+									"required": false
+								}
+							}
+						},
+						"new": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/eu/new",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/eu/new/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/eu/new/net",
+									"required": false
+								}
+							}
+						},
+						"ownerchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/eu/ownerchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/eu/ownerchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/eu/ownerchange/net",
+									"required": false
+								}
+							}
+						},
+						"renew": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/eu/renew",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/eu/renew/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/eu/renew/net",
+									"required": false
+								}
+							}
+						},
+						"restore": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/eu/restore",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/eu/restore/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/eu/restore/net",
+									"required": false
+								}
+							}
+						},
+						"techchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/eu/techchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/eu/techchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/eu/techchange/net",
+									"required": false
+								}
+							}
+						},
+						"transfer": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/eu/transfer",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/eu/transfer/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/eu/transfer/net",
+									"required": false
+								}
+							}
+						}
+					}
+				},
+				"fm": {
+					"type": "object",
+					"id": "http://jsonschema.net/prices/fm",
+					"required": false,
+					"properties": {
+						"adminchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/fm/adminchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/fm/adminchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/fm/adminchange/net",
+									"required": false
+								}
+							}
+						},
+						"contactchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/fm/contactchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/fm/contactchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/fm/contactchange/net",
+									"required": false
+								}
+							}
+						},
+						"new": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/fm/new",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/fm/new/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/fm/new/net",
+									"required": false
+								}
+							}
+						},
+						"ownerchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/fm/ownerchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/fm/ownerchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/fm/ownerchange/net",
+									"required": false
+								}
+							}
+						},
+						"renewRestore": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/fm/renewRestore",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/fm/renewRestore/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/fm/renewRestore/net",
+									"required": false
+								}
+							}
+						},
+						"renew": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/fm/renew",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/fm/renew/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/fm/renew/net",
+									"required": false
+								}
+							}
+						},
+						"restore": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/fm/restore",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/fm/restore/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/fm/restore/net",
+									"required": false
+								}
+							}
+						},
+						"techchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/fm/techchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/fm/techchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/fm/techchange/net",
+									"required": false
+								}
+							}
+						},
+						"transfer": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/fm/transfer",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/fm/transfer/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/fm/transfer/net",
+									"required": false
+								}
+							}
+						}
+					}
+				},
+				"hu": {
+					"type": "object",
+					"id": "http://jsonschema.net/prices/hu",
+					"required": false,
+					"properties": {
+						"adminchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/hu/adminchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/hu/adminchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/hu/adminchange/net",
+									"required": false
+								}
+							}
+						},
+						"contactchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/hu/contactchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/hu/contactchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/hu/contactchange/net",
+									"required": false
+								}
+							}
+						},
+						"new": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/hu/new",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/hu/new/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/hu/new/net",
+									"required": false
+								}
+							}
+						},
+						"ownerchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/hu/ownerchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/hu/ownerchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/hu/ownerchange/net",
+									"required": false
+								}
+							}
+						},
+						"renewRestore": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/hu/renewRestore",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/hu/renewRestore/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/hu/renewRestore/net",
+									"required": false
+								}
+							}
+						},
+						"renew": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/hu/renew",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/hu/renew/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/hu/renew/net",
+									"required": false
+								}
+							}
+						},
+						"restore": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/hu/restore",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/hu/restore/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/hu/restore/net",
+									"required": false
+								}
+							}
+						},
+						"techchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/hu/techchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/hu/techchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/hu/techchange/net",
+									"required": false
+								}
+							}
+						},
+						"transfer": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/hu/transfer",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/hu/transfer/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/hu/transfer/net",
+									"required": false
+								}
+							}
+						}
+					}
+				},
+				"info": {
+					"type": "object",
+					"id": "http://jsonschema.net/prices/info",
+					"required": false,
+					"properties": {
+						"adminchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/info/adminchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/info/adminchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/info/adminchange/net",
+									"required": false
+								}
+							}
+						},
+						"contactchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/info/contactchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/info/contactchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/info/contactchange/net",
+									"required": false
+								}
+							}
+						},
+						"new": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/info/new",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/info/new/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/info/new/net",
+									"required": false
+								}
+							}
+						},
+						"ownerchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/info/ownerchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/info/ownerchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/info/ownerchange/net",
+									"required": false
+								}
+							}
+						},
+						"renewRestore": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/info/renewRestore",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/info/renewRestore/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/info/renewRestore/net",
+									"required": false
+								}
+							}
+						},
+						"renew": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/info/renew",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/info/renew/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/info/renew/net",
+									"required": false
+								}
+							}
+						},
+						"restore": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/info/restore",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/info/restore/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/info/restore/net",
+									"required": false
+								}
+							}
+						},
+						"techchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/info/techchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/info/techchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/info/techchange/net",
+									"required": false
+								}
+							}
+						},
+						"transfer": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/info/transfer",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/info/transfer/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/info/transfer/net",
+									"required": false
+								}
+							}
+						}
+					}
+				},
+				"me": {
+					"type": "object",
+					"id": "http://jsonschema.net/prices/me",
+					"required": false,
+					"properties": {
+						"adminchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/me/adminchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/me/adminchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/me/adminchange/net",
+									"required": false
+								}
+							}
+						},
+						"contactchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/me/contactchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/me/contactchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/me/contactchange/net",
+									"required": false
+								}
+							}
+						},
+						"new": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/me/new",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/me/new/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/me/new/net",
+									"required": false
+								}
+							}
+						},
+						"ownerchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/me/ownerchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/me/ownerchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/me/ownerchange/net",
+									"required": false
+								}
+							}
+						},
+						"renewRestore": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/me/renewRestore",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/me/renewRestore/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/me/renewRestore/net",
+									"required": false
+								}
+							}
+						},
+						"renew": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/me/renew",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/me/renew/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/me/renew/net",
+									"required": false
+								}
+							}
+						},
+						"restore": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/me/restore",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/me/restore/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/me/restore/net",
+									"required": false
+								}
+							}
+						},
+						"techchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/me/techchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/me/techchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/me/techchange/net",
+									"required": false
+								}
+							}
+						},
+						"transfer": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/me/transfer",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/me/transfer/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/me/transfer/net",
+									"required": false
+								}
+							}
+						}
+					}
+				},
+				"mobi": {
+					"type": "object",
+					"id": "http://jsonschema.net/prices/mobi",
+					"required": false,
+					"properties": {
+						"adminchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/mobi/adminchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/mobi/adminchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/mobi/adminchange/net",
+									"required": false
+								}
+							}
+						},
+						"contactchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/mobi/contactchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/mobi/contactchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/mobi/contactchange/net",
+									"required": false
+								}
+							}
+						},
+						"new": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/mobi/new",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/mobi/new/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/mobi/new/net",
+									"required": false
+								}
+							}
+						},
+						"ownerchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/mobi/ownerchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/mobi/ownerchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/mobi/ownerchange/net",
+									"required": false
+								}
+							}
+						},
+						"renewRestore": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/mobi/renewRestore",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/mobi/renewRestore/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/mobi/renewRestore/net",
+									"required": false
+								}
+							}
+						},
+						"renew": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/mobi/renew",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/mobi/renew/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/mobi/renew/net",
+									"required": false
+								}
+							}
+						},
+						"restore": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/mobi/restore",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/mobi/restore/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/mobi/restore/net",
+									"required": false
+								}
+							}
+						},
+						"techchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/mobi/techchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/mobi/techchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/mobi/techchange/net",
+									"required": false
+								}
+							}
+						},
+						"transfer": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/mobi/transfer",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/mobi/transfer/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/mobi/transfer/net",
+									"required": false
+								}
+							}
+						}
+					}
+				},
+				"net": {
+					"type": "object",
+					"id": "http://jsonschema.net/prices/net",
+					"required": false,
+					"properties": {
+						"adminchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/net/adminchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/net/adminchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/net/adminchange/net",
+									"required": false
+								}
+							}
+						},
+						"contactchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/net/contactchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/net/contactchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/net/contactchange/net",
+									"required": false
+								}
+							}
+						},
+						"new": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/net/new",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/net/new/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/net/new/net",
+									"required": false
+								}
+							}
+						},
+						"ownerchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/net/ownerchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/net/ownerchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/net/ownerchange/net",
+									"required": false
+								}
+							}
+						},
+						"renewRestore": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/net/renewRestore",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/net/renewRestore/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/net/renewRestore/net",
+									"required": false
+								}
+							}
+						},
+						"renew": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/net/renew",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/net/renew/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/net/renew/net",
+									"required": false
+								}
+							}
+						},
+						"restore": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/net/restore",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/net/restore/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/net/restore/net",
+									"required": false
+								}
+							}
+						},
+						"techchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/net/techchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/net/techchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/net/techchange/net",
+									"required": false
+								}
+							}
+						},
+						"transfer": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/net/transfer",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/net/transfer/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/net/transfer/net",
+									"required": false
+								}
+							}
+						}
+					}
+				},
+				"org": {
+					"type": "object",
+					"id": "http://jsonschema.net/prices/org",
+					"required": false,
+					"properties": {
+						"adminchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/org/adminchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/org/adminchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/org/adminchange/net",
+									"required": false
+								}
+							}
+						},
+						"contactchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/org/contactchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/org/contactchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/org/contactchange/net",
+									"required": false
+								}
+							}
+						},
+						"new": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/org/new",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/org/new/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/org/new/net",
+									"required": false
+								}
+							}
+						},
+						"ownerchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/org/ownerchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/org/ownerchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/org/ownerchange/net",
+									"required": false
+								}
+							}
+						},
+						"renewRestore": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/org/renewRestore",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/org/renewRestore/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/org/renewRestore/net",
+									"required": false
+								}
+							}
+						},
+						"renew": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/org/renew",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/org/renew/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/org/renew/net",
+									"required": false
+								}
+							}
+						},
+						"restore": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/org/restore",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/org/restore/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/org/restore/net",
+									"required": false
+								}
+							}
+						},
+						"techchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/org/techchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/org/techchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/org/techchange/net",
+									"required": false
+								}
+							}
+						},
+						"transfer": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/org/transfer",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/org/transfer/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/org/transfer/net",
+									"required": false
+								}
+							}
+						}
+					}
+				},
+				"pl": {
+					"type": "object",
+					"id": "http://jsonschema.net/prices/pl",
+					"required": false,
+					"properties": {
+						"adminchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/pl/adminchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/pl/adminchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/pl/adminchange/net",
+									"required": false
+								}
+							}
+						},
+						"contactchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/pl/contactchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/pl/contactchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/pl/contactchange/net",
+									"required": false
+								}
+							}
+						},
+						"new": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/pl/new",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/pl/new/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/pl/new/net",
+									"required": false
+								}
+							}
+						},
+						"ownerchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/pl/ownerchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/pl/ownerchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/pl/ownerchange/net",
+									"required": false
+								}
+							}
+						},
+						"renewRestore": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/pl/renewRestore",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/pl/renewRestore/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/pl/renewRestore/net",
+									"required": false
+								}
+							}
+						},
+						"renew": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/pl/renew",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/pl/renew/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/pl/renew/net",
+									"required": false
+								}
+							}
+						},
+						"restore": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/pl/restore",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/pl/restore/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/pl/restore/net",
+									"required": false
+								}
+							}
+						},
+						"techchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/pl/techchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/pl/techchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/pl/techchange/net",
+									"required": false
+								}
+							}
+						},
+						"transfer": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/pl/transfer",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/pl/transfer/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/pl/transfer/net",
+									"required": false
+								}
+							}
+						}
+					}
+				},
+				"ro": {
+					"type": "object",
+					"id": "http://jsonschema.net/prices/ro",
+					"required": false,
+					"properties": {
+						"adminchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/ro/adminchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/ro/adminchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/ro/adminchange/net",
+									"required": false
+								}
+							}
+						},
+						"contactchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/ro/contactchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/ro/contactchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/ro/contactchange/net",
+									"required": false
+								}
+							}
+						},
+						"new": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/ro/new",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/ro/new/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/ro/new/net",
+									"required": false
+								}
+							}
+						},
+						"ownerchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/ro/ownerchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/ro/ownerchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/ro/ownerchange/net",
+									"required": false
+								}
+							}
+						},
+						"renewRestore": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/ro/renewRestore",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/ro/renewRestore/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/ro/renewRestore/net",
+									"required": false
+								}
+							}
+						},
+						"renew": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/ro/renew",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/ro/renew/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/ro/renew/net",
+									"required": false
+								}
+							}
+						},
+						"restore": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/ro/restore",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/ro/restore/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/ro/restore/net",
+									"required": false
+								}
+							}
+						},
+						"techchange": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/ro/techchange",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/ro/techchange/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/ro/techchange/net",
+									"required": false
+								}
+							}
+						},
+						"transfer": {
+							"type": "object",
+							"id": "http://jsonschema.net/prices/ro/transfer",
+							"required": false,
+							"properties": {
+								"gross": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/ro/transfer/gross",
+									"required": false
+								},
+								"net": {
+									"type": "number",
+									"id": "http://jsonschema.net/prices/ro/transfer/net",
+									"required": false
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"remark": {
+			"type": "string",
+			"id": "http://jsonschema.net/remark",
+			"required": false
 		}
 	}
 }
